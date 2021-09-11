@@ -5,9 +5,21 @@ const whatsappTheme = {
         global: {
             'html, body': {
                 backgroundColor: 'grey.150',
+                overflow: 'hidden',
             },
             button: {
                 cursor: 'pointer',
+            },
+            '::-webkit-scrollbar-track': {
+                bgColor: 'transparent',
+            },
+            '::-webkit-scrollbar': {
+                width: '6px',
+                bgColor: 'transparent',
+            },
+            '::-webkit-scrollbar-thumb': {
+                borderRadius: '0px',
+                bgColor: '#CCC',
             },
         },
     },

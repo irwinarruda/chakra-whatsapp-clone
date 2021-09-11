@@ -3,14 +3,16 @@ import { NextPage } from 'next';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { MdMessage } from 'react-icons/md';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
-import { Flex, Box, Image, ButtonGroup } from '@chakra-ui/react';
+import { Flex, Box, ButtonGroup } from '@chakra-ui/react';
 
 import { TransparentButton } from '@components/atoms/Buttons/TransparentButton';
+import { RoundImage } from '@components/atoms/RoundImage';
+
 import { BlockLowBatery } from '@components/molecules/Toasters/BlockLowBatery';
 import { BlockNotifications } from '@components/molecules/Toasters/BlockNotifications';
 import { BlockLowInternet } from '@components/molecules/Toasters/BlockLowInternet';
-
-import { SearchInput } from '@components/atoms/Inputs/SearchInput';
+import { SearchInput } from '@components/molecules/Forms/SearchInput';
+import { ContactItem } from '@components/molecules/Lists/ContactItem';
 
 const NotificationTypes = {
     default: <BlockNotifications />,
@@ -23,13 +25,13 @@ const Home: NextPage = () => {
         <Flex
             alignItems="flex-start"
             maxWidth="1396px"
+            height={{ base: '100vh', xl: '95vh' }}
             width="100%"
-            height={{ base: '100vh', xl: '90vh' }}
             margin={{ base: '0', xl: '5' }}
             bgColor="grey.70"
             boxShadow="0 1px 1px 0 rgba(0, 0, 0,.06), 0 2px 5px 0 rgba(0, 0, 0,.2);"
         >
-            <Box flex="30%">
+            <Flex flexDir="column" maxWidth="30%" height="100%">
                 <Flex
                     alignItems="center"
                     justifyContent="space-between"
@@ -37,16 +39,13 @@ const Home: NextPage = () => {
                     paddingY="2.5"
                     paddingX="4"
                 >
-                    <Box
+                    <RoundImage
+                        dimensions="40px"
+                        src="/user.jpg"
+                        alt="User Image"
                         as="button"
-                        width="40px"
-                        height="40px"
-                        borderRadius="full"
-                        overflow="hidden"
-                    >
-                        <Image src="/user.jpg" alt="User Image" />
-                    </Box>
-                    <ButtonGroup spacing="2.5" alignItems="center">
+                    />
+                    <ButtonGroup spacing="2.5">
                         <TransparentButton>
                             <AiOutlineLoading3Quarters
                                 size={22}
@@ -63,8 +62,38 @@ const Home: NextPage = () => {
                 </Flex>
                 {NotificationTypes['default']}
                 <SearchInput placeholder="Pesquisar ou começar uma nove conversão" />
-            </Box>
-            <Flex flex="70%"></Flex>
+                <Box
+                    flexGrow={1}
+                    bgColor="white"
+                    overflowY="scroll"
+                    overflowX="hidden"
+                >
+                    <Box width="100%">
+                        <ContactItem selected />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                    </Box>
+                </Box>
+            </Flex>
+            <Flex maxWidth="70%"></Flex>
         </Flex>
     );
 };

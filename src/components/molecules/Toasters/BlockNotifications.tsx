@@ -33,7 +33,7 @@ const BlockNotifications = ({ onNotification }: BlockNotificationsProps) => {
                     borderRadius="full"
                     bgColor="white"
                 >
-                    <FaBellSlash size={24} color="#9DE1FE" />
+                    <FaBellSlash size={22} color="#9DE1FE" />
                 </Center>
             </Box>
             <Box>
@@ -41,6 +41,7 @@ const BlockNotifications = ({ onNotification }: BlockNotificationsProps) => {
                     fontSize="md"
                     color="grey.900"
                     fontWeight="thin"
+                    textAlign="left"
                     userSelect="none"
                 >
                     Receba notificações de novas mensagens
@@ -50,6 +51,7 @@ const BlockNotifications = ({ onNotification }: BlockNotificationsProps) => {
                     alignItems="center"
                     fontSize="sm"
                     fontWeight="thin"
+                    textAlign="left"
                     color="grey.900"
                     userSelect="none"
                     _hover={{ textDecoration: 'underline' }}

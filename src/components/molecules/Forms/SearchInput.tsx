@@ -3,7 +3,6 @@ import React from 'react';
 
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { HiArrowLeft } from 'react-icons/hi';
-import { FiX } from 'react-icons/fi';
 
 type SearchInputProps = {
     placeholder?: string;
@@ -11,17 +10,25 @@ type SearchInputProps = {
 
 const SearchInput = ({ placeholder }: SearchInputProps) => {
     const inputRef = React.useRef<HTMLInputElement | null>(null);
+    const buttonRef = React.useRef<HTMLButtonElement | null>(null);
     const [value, setValue] = React.useState('');
     const [isFocused, setIsFocused] = React.useState(false);
+    const [hasClickedOutside, setHasClickedOutside] = React.useState(false);
+
+    const handleClickOutside: EventListener = (event) => {
+        if (
+            inputRef.current &&
+            buttonRef.current &&
+            !inputRef.current.contains(event.target as any) &&
+            !buttonRef.current.contains(event.target as any)
+        ) {
+            setHasClickedOutside(true);
+        }
+    };
 
     const handleInputFocus = () => {
         setIsFocused(true);
-    };
-
-    const handleInputBlur = () => {
-        if (!value) {
-            setIsFocused(false);
-        }
+        document.addEventListener('mousedown', handleClickOutside);
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,12 +36,28 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
     };
 
     const handleSearchButtonClick = () => {
-        if (!isFocused) {
+        if (isFocused) {
+            console.log('aqui');
             setIsFocused(false);
             setValue('');
             return;
         }
+
+        inputRef?.current?.focus();
     };
+
+    React.useEffect(() => {
+        if (hasClickedOutside) {
+            if (!value) {
+                setIsFocused(false);
+                document.removeEventListener('mousedown', handleClickOutside);
+            }
+            setHasClickedOutside(false);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [hasClickedOutside]);
 
     return (
         <Flex
@@ -45,6 +68,8 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
             paddingX="2.5"
             paddingY="2"
             bgColor="#F6F6F6"
+            borderBottom="1px solid"
+            borderBottomColor="grey.70"
             transition="all 0.175s linear"
             _after={{
                 content: `"${placeholder}"`,
@@ -73,13 +98,14 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                 fontSize="md"
                 bgColor="#FFFFFF"
                 borderRadius="none"
+                boxShadow="0 3px 4px -1px rgba(0, 0, 0,.06)"
+                overflowX="hidden"
                 opacity={isFocused ? '1' : '0'}
                 transition="all 0.175s linear"
                 ref={inputRef}
                 value={value}
                 onChange={handleInputChange}
                 onFocus={handleInputFocus}
-                onBlur={handleInputBlur}
             />
             <Button
                 type="button"
@@ -92,12 +118,14 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                 transform={
                     isFocused
                         ? 'translateY(50%) rotate(0deg)'
-                        : 'translateY(50%) rotate(-180deg)'
+                        : 'translateY(50%) rotate(-90deg)'
                 }
                 transition="all 0.175s linear"
                 _focus={{
                     boxShadow: 'none',
                 }}
+                aria-label="Pesquisar"
+                ref={buttonRef}
                 onClick={handleSearchButtonClick}
             >
                 <Center
@@ -116,7 +144,7 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                     right="50%"
                     opacity={isFocused ? '0' : '1'}
                     transition="all 0.1s linear"
-                    transform="translateX(50%) translateY(50%) rotate(180deg)"
+                    transform="translateX(50%) translateY(50%) rotate(90deg)"
                 >
                     <BiSearchAlt2 color="grey" size={18} />
                 </Center>
