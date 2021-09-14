@@ -13,6 +13,7 @@ const RoundImage = ({ dimensions, src, alt, ...props }: RoundImageProps) => {
             <Box
                 width={dimensions}
                 height={dimensions}
+                margin="0 auto"
                 borderRadius="full"
                 overflow="hidden"
                 userSelect="none"

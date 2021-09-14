@@ -1,4 +1,4 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, theme as chakraTheme } from '@chakra-ui/react';
 
 const whatsappTheme = {
     styles: {
@@ -30,6 +30,7 @@ const whatsappTheme = {
     colors: {
         white: '#ffffff',
         grey: {
+            20: '#F8F9FB',
             30: '#f7f7f7',
             60: '#f0f0f0',
             70: '#ededed',
@@ -53,6 +54,8 @@ const whatsappTheme = {
         green: {
             50: '#DCF8C6',
             500: '#25D366',
+            550: '#0AAD48',
+            600: '#0aa545',
         },
         teal: {
             400: '#00BFA5',
@@ -78,9 +81,86 @@ const whatsappTheme = {
     },
     radii: {
         none: '0px',
+        forms: '3px',
         chat: '7.5px',
         input: '21px',
         full: '100%',
+    },
+    components: {
+        Button: {
+            baseStyle: {
+                fontWeight: 'normal',
+                borderRadius: 'forms',
+                bg: 'green.500',
+                color: 'white',
+            },
+            variants: {
+                solid: (props: any) => ({
+                    bg: props.colorMode === 'dark' ? 'teal.500' : 'green.600',
+                    transition: 'all 0.1s linear',
+                    _hover: {
+                        bg:
+                            props.colorMode === 'dark'
+                                ? 'teal.500'
+                                : 'green.550',
+                        boxShadow:
+                            '0 1px 1px 0 rgba(0, 0, 0, 0.06),0 2px 5px 0 rgba(0, 0, 0, 0.2);',
+                    },
+                    _active: {
+                        bg:
+                            props.colorMode === 'dark'
+                                ? 'teal.500'
+                                : 'green.550',
+                    },
+                    _focus: {
+                        bg:
+                            props.colorMode === 'dark'
+                                ? 'teal.500'
+                                : 'green.550',
+                        boxShadow:
+                            '0 1px 1px 0 rgba(0, 0, 0, 0.06),0 2px 5px 0 rgba(0, 0, 0, 0.2);',
+                    },
+                }),
+                outline: (props: any) => ({
+                    color: 'green.600',
+                    bg: 'none',
+                    borderColor:
+                        props.colorMode === 'dark' ? 'teal.500' : 'grey.100',
+                    transition: 'all 0.1s linear',
+                    _hover: {
+                        bg: 'none',
+                        boxShadow:
+                            '0 1px 1px 0 rgba(0, 0, 0, 0.06),0 2px 5px 0 rgba(0, 0, 0, 0.2);',
+                    },
+                    _active: {
+                        bg: 'none',
+                    },
+                    _focus: {
+                        bg: 'none',
+                        boxShadow:
+                            '0 1px 1px 0 rgba(0, 0, 0, 0.06),0 2px 5px 0 rgba(0, 0, 0, 0.2);',
+                    },
+                }),
+                roundIcon: () => ({
+                    padding: '0',
+                    borderRadius: 'full',
+                    bgColor: 'transparent',
+                    _hover: { bgColor: 'transparent' },
+                    _active: {
+                        bgColor: 'rgba(0, 0, 0, 0.1)',
+                        boxShadow: 'none',
+                    },
+                    _focus: {
+                        bgColor: 'transparent',
+                        boxShadow: 'none',
+                    },
+                    _focusVisible: {
+                        bgColor: 'rgba(0, 0, 0, 0.1)',
+                        boxShadow: 'none',
+                    },
+                }),
+            },
+        },
     },
 };
 
