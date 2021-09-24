@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, HStack, Center, Text } from '@chakra-ui/react';
+import { Box, HStack, Center, Text, Icon } from '@chakra-ui/react';
 import { FaBellSlash } from 'react-icons/fa';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
@@ -33,7 +33,7 @@ const BlockNotifications = ({ onNotification }: BlockNotificationsProps) => {
                     borderRadius="full"
                     bgColor="white"
                 >
-                    <FaBellSlash size={22} color="#9DE1FE" />
+                    <Icon as={FaBellSlash} width="22px" color="blue.200" />
                 </Center>
             </Box>
             <Box>
@@ -57,14 +57,13 @@ const BlockNotifications = ({ onNotification }: BlockNotificationsProps) => {
                     _hover={{ textDecoration: 'underline' }}
                 >
                     Ativar notificações na área de trabalho{' '}
-                    <MdKeyboardArrowRight
-                        size={18}
-                        color="#303030"
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            marginBottom: '-3px',
-                        }}
+                    <Icon
+                        as={MdKeyboardArrowRight}
+                        display="flex"
+                        alignItems="center"
+                        marginBottom="-3px"
+                        width="18px"
+                        color="grey.800"
                     />
                 </Text>
             </Box>

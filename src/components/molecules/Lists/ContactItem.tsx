@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Text, Icon } from '@chakra-ui/react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { RoundImage } from '@components/atoms/RoundImage';
@@ -101,7 +101,7 @@ const ContactItem = ({ selected }: ContactItemProps) => {
                 transform={isMouseOver ? 'translateX(0px)' : 'translateX(20px)'}
                 _focus={{ boxShadow: 'none' }}
             >
-                <RiArrowDownSLine size={26} color="#999" />
+                <Icon as={RiArrowDownSLine} width="26px" color="grey.400" />
             </Button>
         </Flex>
     );

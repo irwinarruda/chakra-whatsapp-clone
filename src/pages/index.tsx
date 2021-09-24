@@ -1,26 +1,15 @@
 import React from 'react';
 import { NextPage } from 'next';
-import { AiOutlineLoading3Quarters } from 'react-icons/ai';
-import { MdMessage } from 'react-icons/md';
-import { HiOutlineDotsVertical } from 'react-icons/hi';
-import {
-    Flex,
-    Box,
-    ButtonGroup,
-    Text,
-    Heading,
-    Divider,
-    keyframes,
-} from '@chakra-ui/react';
-
-import { TransparentButton } from '@components/atoms/Buttons/TransparentButton';
-import { RoundImage } from '@components/atoms/RoundImage';
+import { Flex, Box, keyframes } from '@chakra-ui/react';
 
 import { BlockLowBatery } from '@components/molecules/Toasters/BlockLowBatery';
 import { BlockNotifications } from '@components/molecules/Toasters/BlockNotifications';
 import { BlockLowInternet } from '@components/molecules/Toasters/BlockLowInternet';
 import { SearchInput } from '@components/molecules/Forms/SearchInput';
+import { ContactList } from '@components/molecules/Lists/ContactList';
 import { ContactItem } from '@components/molecules/Lists/ContactItem';
+
+import { UserNavBar } from '@components/organisms/Nav/UserNavBar';
 
 import { NoChatMessage } from '@components/templates/NoChatMessage';
 
@@ -57,76 +46,32 @@ const Home: NextPage = () => {
                 borderColor="grey.150"
             >
                 <Flex flexDir="column" height="100%">
-                    <Flex
-                        alignItems="center"
-                        justifyContent="space-between"
-                        width="100%"
-                        paddingY="2.5"
-                        paddingX="4"
-                    >
-                        <RoundImage
-                            dimensions="40px"
-                            src="/user.jpg"
-                            alt="User Image"
-                            as="button"
-                        />
-                        <ButtonGroup spacing="2.5">
-                            <TransparentButton
-                                aria-label="Stories"
-                                icon={
-                                    <AiOutlineLoading3Quarters
-                                        size={22}
-                                        color="#262626"
-                                    />
-                                }
-                            />
-                            <TransparentButton
-                                aria-label="Mensagens"
-                                icon={<MdMessage size={22} color="#262626" />}
-                            />
-                            <TransparentButton
-                                aria-label="Menu"
-                                icon={
-                                    <HiOutlineDotsVertical
-                                        size={22}
-                                        color="#262626"
-                                    />
-                                }
-                            />
-                        </ButtonGroup>
-                    </Flex>
+                    <UserNavBar />
                     {NotificationTypes['default']}
                     <SearchInput placeholder="Pesquisar ou começar uma nove conversão" />
-                    <Box
-                        flexGrow={1}
-                        bgColor="white"
-                        overflowY="scroll"
-                        overflowX="hidden"
-                    >
-                        <Box width="100%">
-                            <ContactItem selected />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                            <ContactItem />
-                        </Box>
-                    </Box>
+                    <ContactList>
+                        <ContactItem selected />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                        <ContactItem />
+                    </ContactList>
                 </Flex>
             </Box>
             <Box flex="1" maxWidth="70%" height="100%">

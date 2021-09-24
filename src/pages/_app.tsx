@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppProps } from 'next/app';
-import { Box, Flex, ChakraProvider, useMediaQuery } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 
 import { BgWppContainer } from '@components/templates/BgWppContainer';
 

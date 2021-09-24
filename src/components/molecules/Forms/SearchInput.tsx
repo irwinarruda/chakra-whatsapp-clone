@@ -1,4 +1,4 @@
-import { Flex, Center, Input, Button } from '@chakra-ui/react';
+import { Flex, Center, Input, Button, Icon } from '@chakra-ui/react';
 import React from 'react';
 
 import { BiSearchAlt2 } from 'react-icons/bi';
@@ -37,9 +37,10 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
 
     const handleSearchButtonClick = () => {
         if (isFocused) {
-            console.log('aqui');
             setIsFocused(false);
             setValue('');
+            setHasClickedOutside(false);
+            document.removeEventListener('mousedown', handleClickOutside);
             return;
         }
 
@@ -136,7 +137,7 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                     transition="all 0.1s linear"
                     transform="translateX(50%) translateY(50%)"
                 >
-                    <HiArrowLeft color="#9DE1FE" size={22} />
+                    <Icon as={HiArrowLeft} width="22px" color="blue.200" />
                 </Center>
                 <Center
                     position="absolute"
@@ -146,7 +147,7 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                     transition="all 0.1s linear"
                     transform="translateX(50%) translateY(50%) rotate(90deg)"
                 >
-                    <BiSearchAlt2 color="grey" size={18} />
+                    <Icon as={BiSearchAlt2} width="22px" color="grey" />
                 </Center>
             </Button>
         </Flex>

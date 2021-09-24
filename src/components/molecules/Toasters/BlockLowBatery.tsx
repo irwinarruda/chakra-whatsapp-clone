@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Center, HStack, Text } from '@chakra-ui/react';
+import { Box, Center, HStack, Text, Icon } from '@chakra-ui/react';
 import { MdBatteryAlert } from 'react-icons/md';
 import { FiX } from 'react-icons/fi';
 
@@ -37,7 +37,11 @@ const BlockLowBatery = ({ onClose }: BlockLowBateryProps) => {
                             borderRadius="full"
                             bgColor="white"
                         >
-                            <MdBatteryAlert size={30} color="#FA685E" />
+                            <Icon
+                                as={MdBatteryAlert}
+                                width="30px"
+                                color="red.200"
+                            />
                         </Center>
                     </Box>
                     <Box>
@@ -56,7 +60,7 @@ const BlockLowBatery = ({ onClose }: BlockLowBateryProps) => {
                             onClick={handleCloseButtonClick as any}
                             aria-label="Fechar mensagem de pouca bateria"
                         >
-                            <FiX size={20} color="white" />
+                            <Icon as={FiX} width="20px" color="white" />
                         </Box>
                     </Box>
                 </HStack>

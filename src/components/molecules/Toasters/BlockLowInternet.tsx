@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, HStack, Center, Text } from '@chakra-ui/react';
+import { Box, HStack, Center, Text, Icon } from '@chakra-ui/react';
 import {
     MdKeyboardArrowRight,
     MdSignalCellularConnectedNoInternet1Bar,
@@ -35,9 +35,10 @@ const BlockLowInternet = ({ onNotification }: BlockLowInternetProps) => {
                     borderRadius="full"
                     bgColor="white"
                 >
-                    <MdSignalCellularConnectedNoInternet1Bar
-                        size={24}
-                        color="#FED859"
+                    <Icon
+                        as={MdSignalCellularConnectedNoInternet1Bar}
+                        width="24px"
+                        color="yellow.200"
                     />
                 </Center>
             </Box>
@@ -71,14 +72,13 @@ const BlockLowInternet = ({ onNotification }: BlockLowInternetProps) => {
                     _hover={{ textDecoration: 'underline' }}
                 >
                     Saiba mais{' '}
-                    <MdKeyboardArrowRight
-                        size={18}
-                        color="#303030"
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            marginBottom: '-3px',
-                        }}
+                    <Icon
+                        as={MdKeyboardArrowRight}
+                        display="flex"
+                        alignItems="center"
+                        marginBottom="-3px"
+                        width="18px"
+                        color="grey.800"
                     />
                 </Text>
             </Box>

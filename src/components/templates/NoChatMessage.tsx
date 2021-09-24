@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Divider, Flex, Text, Heading, keyframes } from '@chakra-ui/react';
+import { Box, Divider, Flex, Text, Heading, Icon } from '@chakra-ui/react';
 import { MdComputer } from 'react-icons/md';
 
 import { RoundImage } from '@components/atoms/RoundImage';
 
-const NoChatMessage: React.FC = () => {
+const NoChatMessage = () => {
     return (
         <Flex
             alignItems="center"
@@ -53,8 +53,8 @@ const NoChatMessage: React.FC = () => {
                     fontSize="sm"
                     lineHeight="20px"
                 >
-                    <MdComputer size={20} style={{ marginRight: '5px' }} />O
-                    WhatsApp está disponível para Windows.{' '}
+                    <Icon as={MdComputer} marginRight="5px" />O WhatsApp está
+                    disponível para Windows.{' '}
                     <Text as="a" href="/" marginLeft="5px" color="green.600">
                         Baixe aqui
                     </Text>
