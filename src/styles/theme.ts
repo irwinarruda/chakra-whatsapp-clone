@@ -36,11 +36,11 @@ const whatsappTheme = {
             70: '#ededed',
             100: '#e6e6e6',
             150: '#d9d9d9',
-            200: '#ccc',
+            200: '#cccccc',
             300: '#b3b3b3',
-            400: '#999',
+            400: '#999999',
             500: 'grey',
-            600: '#666',
+            600: '#666666',
             700: '#4a4a4a',
             800: '#303030',
             850: '#262626',
@@ -64,6 +64,8 @@ const whatsappTheme = {
             700: '#075E54',
         },
         yellow: {
+            10: '#E5DDD5',
+            20: '#b09d89',
             200: '#FED859',
         },
         orange: {
@@ -159,6 +161,26 @@ const whatsappTheme = {
                         boxShadow: 'none',
                     },
                 }),
+            },
+        },
+        Input: {
+            variants: {
+                filled: {
+                    field: {
+                        borderRadius: '10000px',
+                        bgColor: 'white',
+                        _hover: {
+                            bgColor: 'white',
+                        },
+                        _focus: {
+                            borderColor: 'green.500',
+                            bgColor: 'grey.10',
+                        },
+                        _placeholder: {
+                            color: 'grey.300',
+                        },
+                    },
+                },
             },
         },
     },

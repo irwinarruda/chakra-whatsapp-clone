@@ -97,6 +97,7 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                 paddingLeft="70px"
                 lineHeight="50px"
                 fontSize="md"
+                color="grey.700"
                 bgColor="#FFFFFF"
                 borderRadius="none"
                 boxShadow="0 3px 4px -1px rgba(0, 0, 0,.06)"
@@ -137,7 +138,12 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                     transition="all 0.1s linear"
                     transform="translateX(50%) translateY(50%)"
                 >
-                    <Icon as={HiArrowLeft} width="22px" color="blue.200" />
+                    <Icon
+                        as={HiArrowLeft}
+                        width="20px"
+                        height="20px"
+                        color="blue.200"
+                    />
                 </Center>
                 <Center
                     position="absolute"
@@ -147,7 +153,12 @@ const SearchInput = ({ placeholder }: SearchInputProps) => {
                     transition="all 0.1s linear"
                     transform="translateX(50%) translateY(50%) rotate(90deg)"
                 >
-                    <Icon as={BiSearchAlt2} width="22px" color="grey" />
+                    <Icon
+                        as={BiSearchAlt2}
+                        width="20px"
+                        height="20px"
+                        color="grey"
+                    />
                 </Center>
             </Button>
         </Flex>

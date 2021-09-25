@@ -14,6 +14,7 @@ const UserNavBar = () => {
             alignItems="center"
             justifyContent="space-between"
             width="100%"
+            height="61px"
             paddingY="2.5"
             paddingX="4"
         >
@@ -29,21 +30,30 @@ const UserNavBar = () => {
                     icon={
                         <Icon
                             as={AiOutlineLoading3Quarters}
-                            width="22px"
+                            width="20px"
+                            height="20px"
                             color="grey.850"
                         />
                     }
                 />
                 <TransparentButton
                     aria-label="Mensagens"
-                    icon={<Icon as={MdMessage} width="22px" color="grey.850" />}
+                    icon={
+                        <Icon
+                            as={MdMessage}
+                            width="20px"
+                            height="20px"
+                            color="grey.850"
+                        />
+                    }
                 />
                 <TransparentButton
                     aria-label="Menu"
                     icon={
                         <Icon
                             as={HiOutlineDotsVertical}
-                            width="22px"
+                            width="20px"
+                            height="20px"
                             color="grey.850"
                         />
                     }

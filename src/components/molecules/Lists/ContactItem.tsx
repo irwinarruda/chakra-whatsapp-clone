@@ -6,13 +6,14 @@ import { RoundImage } from '@components/atoms/RoundImage';
 
 type ContactItemProps = {
     selected?: boolean;
+    onClick?: any;
     /* userName: string;
     userImage: string;
     lastMessageDate: string;
     lastMessage: string; */
 };
 
-const ContactItem = ({ selected }: ContactItemProps) => {
+const ContactItem = ({ selected, onClick }: ContactItemProps) => {
     const [isMouseOver, setIsMouseOver] = React.useState(false);
 
     const handleMouseEnter = () => {
@@ -48,6 +49,7 @@ const ContactItem = ({ selected }: ContactItemProps) => {
                 height: '1px',
                 bgColor: 'grey.70',
             }}
+            onClick={onClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -101,7 +103,12 @@ const ContactItem = ({ selected }: ContactItemProps) => {
                 transform={isMouseOver ? 'translateX(0px)' : 'translateX(20px)'}
                 _focus={{ boxShadow: 'none' }}
             >
-                <Icon as={RiArrowDownSLine} width="26px" color="grey.400" />
+                <Icon
+                    as={RiArrowDownSLine}
+                    width="22px"
+                    height="22px"
+                    color="grey.400"
+                />
             </Button>
         </Flex>
     );

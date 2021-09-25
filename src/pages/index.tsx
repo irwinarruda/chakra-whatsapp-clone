@@ -10,6 +10,8 @@ import { ContactList } from '@components/molecules/Lists/ContactList';
 import { ContactItem } from '@components/molecules/Lists/ContactItem';
 
 import { UserNavBar } from '@components/organisms/Nav/UserNavBar';
+import { ChatNavBar } from '@components/organisms/Nav/ChatNavBar';
+import { ChatInput } from '@components/organisms/Chat/ChatInput';
 
 import { NoChatMessage } from '@components/templates/NoChatMessage';
 
@@ -28,6 +30,10 @@ const NotificationTypes = {
 };
 
 const Home: NextPage = () => {
+    const [chat, setChat] = React.useState<boolean>(false);
+    const toggleChat = () => {
+        setChat((prev) => !prev);
+    };
     return (
         <Flex
             maxWidth="1396px"
@@ -50,7 +56,7 @@ const Home: NextPage = () => {
                     {NotificationTypes['default']}
                     <SearchInput placeholder="Pesquisar ou começar uma nove conversão" />
                     <ContactList>
-                        <ContactItem selected />
+                        <ContactItem selected onClick={toggleChat} />
                         <ContactItem />
                         <ContactItem />
                         <ContactItem />
@@ -74,8 +80,36 @@ const Home: NextPage = () => {
                     </ContactList>
                 </Flex>
             </Box>
-            <Box flex="1" maxWidth="70%" height="100%">
-                <NoChatMessage />
+            <Box flex="1" position="relative" maxWidth="70%" height="100%">
+                {chat ? (
+                    <>
+                        <Flex
+                            flexDirection="column"
+                            width="100%"
+                            height="100%"
+                            bgColor="grey.30"
+                        >
+                            <ChatNavBar />
+                            <Flex height="100%"></Flex>
+                            <ChatInput />
+                        </Flex>
+                        <Flex
+                            position="absolute"
+                            top="0px"
+                            left="0px"
+                            width="100%"
+                            height="100%"
+                            bgImage="/bg-image.png"
+                            opacity="0.2"
+                            bgRepeat="repeat"
+                            bgSize="contain"
+                            bgPosition="center"
+                            bgColor="yellow.20"
+                        ></Flex>
+                    </>
+                ) : (
+                    <NoChatMessage />
+                )}
             </Box>
         </Flex>
     );
