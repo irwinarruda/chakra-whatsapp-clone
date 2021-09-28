@@ -2,6 +2,8 @@ import React from 'react';
 import { NextPage } from 'next';
 import { Flex, Box, keyframes } from '@chakra-ui/react';
 
+import { useAuth } from '@contexts/AuthContext';
+
 import { BlockLowBatery } from '@components/molecules/Toasters/BlockLowBatery';
 import { BlockNotifications } from '@components/molecules/Toasters/BlockNotifications';
 import { BlockLowInternet } from '@components/molecules/Toasters/BlockLowInternet';
@@ -41,7 +43,7 @@ const Home: NextPage = () => {
             width="100%"
             margin={{ base: '0', xl: '5' }}
             bgColor="grey.70"
-            boxShadow="0 1px 1px 0 rgba(0, 0, 0,.06), 0 2px 5px 0 rgba(0, 0, 0,.2);"
+            boxShadow="0 1px 1px 0 rgba(0, 0, 0,.06), 0 2px 5px 0 rgba(0, 0, 0,.2)"
             animation={`${jumpIn} 0.3s cubic-bezier(.1,.82,.25,1)`}
         >
             <Box

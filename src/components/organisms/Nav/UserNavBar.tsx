@@ -5,10 +5,13 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { MdMessage } from 'react-icons/md';
 
+import { useAuth } from '@contexts/AuthContext';
+
 import { TransparentButton } from '@components/atoms/Buttons/TransparentButton';
 import { RoundImage } from '@components/atoms/RoundImage';
 
 const UserNavBar = () => {
+    const { user } = useAuth();
     return (
         <Flex
             alignItems="center"
@@ -20,7 +23,7 @@ const UserNavBar = () => {
         >
             <RoundImage
                 dimensions="40px"
-                src="/user.jpg"
+                src={user?.avatar || '/user.jpg'}
                 alt="User Image"
                 as="button"
             />
