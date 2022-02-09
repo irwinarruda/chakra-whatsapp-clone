@@ -18,27 +18,27 @@ const AuthContext = React.createContext({} as AuthContextProps);
 const AuthProvider = ({ children }: AuthProviderProps) => {
     const [user, setUser] = React.useState<User | null>(null);
 
-    React.useEffect(() => {
-        const currentAuth = auth.getAuth();
-        const unsubscribe = auth.onAuthStateChanged(currentAuth, (user) => {
-            if (user) {
-                const { displayName, photoURL, uid } = user;
-                if (!displayName || !photoURL) {
-                    throw new Error('Missing information from Google Account');
-                }
-                setUser({
-                    id: uid,
-                    name: displayName,
-                    avatar: photoURL,
-                });
-            } else {
-                setUser(null);
-            }
-        });
-        return () => {
-            unsubscribe();
-        };
-    }, []);
+    // React.useEffect(() => {
+    //     const currentAuth = auth.getAuth();
+    //     const unsubscribe = auth.onAuthStateChanged(currentAuth, (user) => {
+    //         if (user) {
+    //             const { displayName, photoURL, uid } = user;
+    //             if (!displayName || !photoURL) {
+    //                 throw new Error('Missing information from Google Account');
+    //             }
+    //             setUser({
+    //                 id: uid,
+    //                 name: displayName,
+    //                 avatar: photoURL,
+    //             });
+    //         } else {
+    //             setUser(null);
+    //         }
+    //     });
+    //     return () => {
+    //         unsubscribe();
+    //     };
+    // }, []);
 
     const signInWithGoogle = async () => {
         try {
