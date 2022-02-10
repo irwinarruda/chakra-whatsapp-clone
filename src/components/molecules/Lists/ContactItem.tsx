@@ -77,7 +77,7 @@ const ContactItem = ({ selected, onClick }: ContactItemProps) => {
                     userSelect="none"
                     isTruncated
                 >
-                    Última mensagem falada kkkkkk
+                    Última mensagem falada
                 </Text>
             </Box>
             <Text
